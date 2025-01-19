@@ -1,0 +1,28 @@
+CUDA_VISIBLE_DEVICES=2,3 python run_qa.py \
+--model_name_or_path /home/zihao/PycharmProjects/Vit_Lora/microsoft/deberta-v3-base \
+--dataset_name /home/zihao/PycharmProjects/Vit_Lora/data/squad \
+--apply_lora \
+--apply_adalora False \
+--lora_type frd \
+--target_rank 2  \
+--lora_r 8  \
+--reg_orth_coef 0.1 \
+--init_warmup 500 \
+--final_warmup 500 \
+--mask_interval 10 \
+--beta1 0.85 \
+--beta2 0.85 \
+--lora_module query,key,value,intermediate,layer.output,attention.output \
+--lora_alpha 8 \
+--do_train \
+--do_eval \
+--per_device_train_batch_size 16 \
+--learning_rate 1e-3 \
+--num_train_epochs 1 \
+--max_seq_length 384 \
+--doc_stride 128 \
+--report_to tensorboard \
+--evaluation_strategy epoch \
+--logging_step 10 \
+--output_dir output/deberta_lora_lr1e03_r2_coef01_alpha8/squad/ \
+--overwrite_output_dir
