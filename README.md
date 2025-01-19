@@ -1,6 +1,7 @@
-# Adapating DeBERTaV3 with LoRA variants for NLG and QA tasks
+# Enhancing Parameter Efficiency and Generalization in Large Models: A Regularized and Masked Low-Rank Adaptation Approach
 
-The folder contains the implementation of multiple LoRA variants:
+This repository contains the implementation of multiple LoRA variants from the paper titled **“Enhancing Parameter Efficiency and Generalization in Large Models: A Regularized and Masked Low-Rank Adaptation Approach”**. 
+
 
 ## Setup Environment
 
@@ -133,14 +134,14 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 python SoRA/run_glue.py \
 
 
 
-### This example runs Random LoRA on MRPC task
+### This example runs RM-LoRA on MRPC task
 
 ```
 #!/bin/bash
 
 export TASK_NAME=mrpc
 
-CUDA_VISIBLE_DEVICES=0,1,2,3 python SoRA/run_glue.py \
+CUDA_VISIBLE_DEVICES=0,1,2,3 python RM-LoRA/run_glue.py \
 --model_name_or_path /microsoft/deberta-v3-base \
 --dataset_name /huggingface/datasets/glue/$TASK_NAME \
 --apply_lora \
